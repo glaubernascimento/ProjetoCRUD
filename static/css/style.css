@@ -1,5 +1,5 @@
-/**static\css\style.css
- *
+/**
+ * static\css\style.css
  * CSS do layout.
  * Folhas de estilo complementares do template.
  */
@@ -65,4 +65,10 @@ footer a:hover {
     z-index: 1050;
     font-size: small;
     opacity: 90%;
+}
+
+.profile-card {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
 }
