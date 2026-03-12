@@ -1,4 +1,4 @@
-# initidb.py
+# initdb.py
 
 import sqlite3
 from config import DB

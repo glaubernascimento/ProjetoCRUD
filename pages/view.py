@@ -17,6 +17,7 @@ def view_page(pad_id):
     owner_uid = request.cookies.get('owner_uid')
 
     conn = sqlite3.connect(DB['name'])
+    # Força os resultados das consultas para DICT
     conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
 
@@ -25,7 +26,9 @@ def view_page(pad_id):
             pads.*, own_uid, own_display_name, own_photo_url, own_status
         FROM pads
         INNER JOIN owners ON pad_owner = own_uid
-        WHERE pad_id = ? AND pad_status = 'ON'
+        WHERE pad_id = ? 
+            AND pad_created_at <= datetime('now')
+            AND pad_status = 'ON'
     ''', (pad_id,))
 
     row = cursor.fetchone()
