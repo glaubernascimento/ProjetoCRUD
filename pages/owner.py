@@ -123,7 +123,7 @@ def owner_profile():
         cursor = conn.cursor()
 
         cursor.execute(
-            "SELECT pad_id, pad_title FROM pads WHERE pad_owner = ? AND pad_status = 'ON' ORDER BY pad_created_at DESC",
+            "SELECT pad_id, pad_title, pad_is_markdown, pad_created_at FROM pads WHERE pad_owner = ? AND pad_status = 'ON' ORDER BY pad_created_at DESC",
             (user_uid,)
         )
 
